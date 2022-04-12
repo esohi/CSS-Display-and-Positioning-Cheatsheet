@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link href="./Resources/css/index.css" type="text/css" rel="stylesheet">
+    <title>CSS Display and Positioning | Cheat Sheet</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>CSS: Display and Positioning</h1>
+    </header>
+    <nav>
+        <a href='#flow'>Flow</a>
+        <a href='#position'>Position</a>
+        <a href='#z-index'>Z-Index</a>
+        <a href='#display'>Display</a>
+        <a href='#float'>Float</a>
+        <a href='#clear'>Clear</a>
+    </nav>
+    <main>
+        <!-- Flow Section -->
+        <section id="flow">
+            <h2>Flow of HTML</h2>
+            <article class="content">
+                <p>A browser will render the elements of an HTML document that has no CSS from left to right, top to
+                    bottom,
+                    in the same order as they exist in the document. This is called the <strong>flow</strong> of
+                    elements in
+                    HTML.</p>
+                <p>In addition to the properties that it provides to style HTML elements, CSS includes properties that
+                    change how a browser <em>positions</em> elements. These properties specify where an element is
+                    located
+                    on a page, if the element can share lines with other elements, and other related attributes.</p>
+                <p>Five properties for adjusting the position of HTML elements in the browser include:</p>
+                <ul>
+                    <li>Position</li>
+                    <li>Display</li>
+                    <li>Z-index</li>
+                    <li>Float</li>
+                    <li>Clear</li>
+                </ul>
+            </article>
+        </section>
+        <!-- Position Section -->
+        <section id="position">
+            <h2>Position</h2>
+            <article class="content">
+                <p>Block-level elements create a block the full width of their parent elements, and they prevent other
+                    elements from appearing in the same horizontal space. Block-level elements take up their own line of
+                    space and therefore don't overlap each other. In a browser, you can see block-level elements also
+                    consistently appear on the left side of the browser. This is the <em>default position</em> for
+                    block-level elements.</p>
+            </article>
+            <table class="table">
+                <thead>
+                    <tr class="property">
+                        <th colspan="4">Position</th>
+                    </tr>
+                    <tr class="items">
+                        <th>Value</th>
+                        <th>Declaration </th>
+                        <th>Description</th>
+                        <th>Important Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="value">Static</td>
+                        <td class="declaration">
+                            <div class="declaration_text">position:static</div>
+                        </td>
+                        <td>The <em>default</em> value. It does not need to be specified.</td>
+                        <td>If you favor the default position of an HTML element, you do not need to set its position
+                            property.</td>
+                    </tr>
+                    <tr>
+                        <td class="value">Relative</td>
+                        <td class="declaration">
+                            <div class="declaration_text">position:relative</div>
+                        </td>
+                        <td>By setting an element's property to relative, this allows you to position an element
+                            <em>relative</em> to its default static position on the web page.</td>
+                        <td>Must accompany the position declaration with one or more of the <em>offset properties</em>:
+                            <strong>top, bottom, left, right.</strong><em> *i.e., 'top' property will move element down
+                                from the top.</em></td>
+                    </tr>
+                    <tr>
+                        <td class="value">Absolute</td>
+                        <td class="declaration">
+                            <div class="declaration_text">position:absolute</div>
+                        </td>
+                        <td>When an element's position is set to absolute, all other elements on the page will ignore
+                            the element and act like it is not present on the page. The element will be positioned
+                            relative to its closest positioned parent element, while <em>offset</em> properties can be
+                            used to determine the final position from there. </td>
+                        <td><strong>Absolute</strong>-positioned elements are removed from the document flow. When a
+                            user scrolls, this element will remain at the specified <em>offset</em> position.</td>
+                    </tr>
+                    <tr>
+                        <td class="value">Fixed</td>
+                        <td class="declaration">
+                            <div class="declaration_text">position:fixed</div>
+                        </td>
+                        <td>We can fix an element to a specific position on the page (regardless of user scrolling) by
+                            setting its position to fixed, and accompanying it with the familiar offset properties top,
+                            bottom, left, and right.</td>
+                        <td>Like absolute-positioned elements,<strong>fixed</strong>-positioned elements are removed
+                            from the document flow.</td>
+                    </tr>
+                    <tr>
+                        <td class="value">Sticky</td>
+                        <td class="declaration">
+                            <div class="declaration_text">position:sticky</div>
+                        </td>
+                        <td>The sticky value is another position value that keeps an element in the document flow as the
+                            user scrolls, but sticks to a specified position as the page is scrolled further. This is
+                            done by using the sticky value along with the familiar offset properties.</td>
+                        <td>For example, with an offset property set to <strong>top:240px</strong>, the element will
+                            remain in its relative position, and scroll as usual. When it reaches 240 pixels from the
+                            top, it will stick to that position until it reaches the bottom of its parent container
+                            where it will 'unstick' and rejoin the flow of the document. </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- Z-Index Section -->
+        <section id="z-index">
+            <h2>Z-Index</h2>
+            <article class="content">
+                <p>When boxes on a web page have a combination of different positions, the boxes (and therefore, their
+                    content) can overlap with each other, making the content difficult to read or consume.</p>
+
+                <p>The <strong>z-index</strong> property controls how far back or how forward an element should appear
+                    on the web page when elements overlap. This can be thought of as the <em>depth</em> of elements,
+                    with deeper elements appearing behind shallower elements.</p>
+
+                <p>The z-index property accepts <strong>integer values</strong>. Depending on their values, the
+                    integers instruct the browser on the order in which elements should be layered on the web page.
+                </p>
+
+                <h4><em>Keyword</em> value</h4>
+                <ul>
+                    <li>z-index: auto;</li>
+                </ul>
+                <h4><em>Integer</em> values</h4>
+                <ul>
+                    <li>z-index: 0;</li>
+                    <li>z-index: 3;</li>
+                    <li>z-index: 289;</li>
+                    <li>z-index: -1;</li>
+                </ul>
+
+                <p>*Negative values used to lower the priority.</p>
+            </article>
+            <table class="table">
+                <thead>
+                    <tr class="property">
+                        <th colspan="4">Z-index</th>
+                    </tr>
+                    <tr class="items">
+                        <th>Value</th>
+                        <th>Declaration</th>
+                        <th>Description</th>
+                        <th>Important Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="value">Integer</td>
+                        <td class="declaration">
+                            <div class="declaration_text">Z-index:integer</div>
+                        </td>
+                        <td>Overlapping elements with a larger z-index cover those with a smaller one.</td>
+                        <td>The z-index property does <em>not</em> work on static elements.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- Display Section -->
+        <section id="display">
+            <h2>Display</h2>
+            <article class="content">
+                <p>The display property specifies the display behavior (the type of rendering box) of an element.</p>
+            </article>
+            <table class="table">
+                <thead>
+                    <tr class="property">
+                        <th colspan="4">Display</th>
+                    </tr>
+                    <tr class="items">
+                        <th>Value</th>
+                        <th>Declaration</th>
+                        <th>Description</th>
+                        <th>Important notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="value">Inline</td>
+                        <td class="declaration">
+                            <div class="declaration_text">display:inline</div>
+                        </td>
+                        <td>
+                            <p>Inline elements have a box that wraps tightly around their content, only taking up the
+                                amount
+                                of space necessary to display their content and not requiring a new line after each
+                                element.
+                                The height and width of these elements cannot be specified in the CSS document.</p>
+                            <p>For example, the text of an anchor tag (&lt;a&gt;) will, by default, be displayed on the
+                                same
+                                line
+                                as the surrounding text, and it will only be as wide as necessary to contain its
+                                content.</p>
+                        </td>
+                        <td>The CSS display property provides the ability to make any element an inline element. This
+                            includes elements that are not inline by default such as paragraphs, divs, and headings.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="value">block</td>
+                        <td class="declaration">
+                            <div class="declaration_text">display:block</div>
+                        </td>
+                        <td>
+                            <p>Some elements are not displayed in the same line as the content around them. These are
+                                called <strong>block-level</strong> elements. These elements fill the entire width of
+                                the page by
+                                default, but their width property can also be set. Unless otherwise specified, they are
+                                the height necessary to accommodate their content.</p>
+                            <p>When the display property is set to <em>block</em> for an element, it will be displayed
+                                on their own line, with no content directly on either side of them even though their
+                                contents may not fill the width of most computer screens.</p>
+                        </td>
+                        <td>Elements that are block-level by default include all levels of heading elements (&lt;h1&gt;
+                            through &lt;h6&gt;), &lt;p&gt;, &lt;div&gt; and &lt;footer&gt;. </td>
+                    </tr>
+                    <tr>
+                        <td class="value">inline-block</td>
+                        <td class="declaration">
+                            <div class="declaration_text">display:inline-block</div>
+                        </td>
+                        <td>
+                            <p><strong>Inline-block</strong> display combines features of both inline and block
+                                elements. Inline-block elements can appear next to each other and we can specify their
+                                dimensions using the width and height properties.</p>
+                            <p>Images are the best example of default inline-block elements.</p>
+                        </td>
+                        <td>
+                            <p>The element generates a block element box that will be flowed with surrounding content as
+                                if it were a single inline box (behaving much like a replaced element would).</p>
+
+                            <p>It is equivalent to <em>inline flow-root.</em></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- Float Section -->
+        <section id="float">
+            <h2>Float</h2>
+            <article class="content">
+                <p>The float CSS property places an element on the left or right side of its container, allowing text
+                    and inline elements to wrap around it. The float property is commonly used for wrapping text around
+                    an image. A floating element is one where the computed value of float is not <em>none</em>.</p>
+                <p>As float implies the use of the block layout, it modifies the computed value of the display
+                    values, in some cases. For example, with display set to either inline or inline-block, the
+                    computed value would render <strong>block</strong>.</p>
+                <p>Note, however, that moving elements left or right for layout purposes is better suited for tools
+                    like CSS grid and flexbox, which you’ll learn about later on.</p>
+            </article>
+            <table class="table">
+                <thead>
+                    <tr class="property">
+                        <th colspan="4">Float</th>
+                    </tr>
+                    <tr class="items">
+                        <th>Value</th>
+                        <th>Declaration</th>
+                        <th>Description</th>
+                        <th>Important notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="value">left</td>
+                        <td class="declaration">
+                            <div class="declaration_text">float:left</div>
+                        </td>
+                        <td>Moves, or floats elements, as far left as possible.</td>
+                        <td>Floated elements must have a width specified. Otherwise, the element will assume the full
+                            width of its containing element, and changing the float value will not yield any visible
+                            results.</td>
+                    </tr>
+                    <tr>
+                        <td class="value">right</td>
+                        <td class="declaration">
+                            <div class="declaration_text">float:right</div>
+                        </td>
+                        <td>Moves, or floats elements, as far right as possible.</td>
+                        <td>When an element is floated, it is taken out of the normal flow of the document (though still
+                            remaining part of it). It is shifted to the left, or right, until it touches the edge of its
+                            containing box, or another floated element.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- Clear Section -->
+        <section id="clear">
+            <h2>Clear</h2>
+            <article class="content">
+                <p>The clear CSS property sets whether an element must be moved below (cleared) floating elements that
+                    precede it. The clear property applies to floating and non-floating elements.</p>
+            </article>
+            <table class="table">
+                <thead>
+                    <tr class="property">
+                        <th colspan="4">Clear</th>
+                    </tr>
+                    <tr class="items">
+                        <th>Value</th>
+                        <th>Declaration</th>
+                        <th>Description</th>
+                        <th>Important notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="value">none</td>
+                        <td class="declaration">
+                            <div class="declaration_text">clear:none</div>
+                        </td>
+                        <td>
+                            <p>Default. The element is not pushed below left or right floated elements.</p>
+                        </td>
+                        <td>
+                            <p>The element can touch either side.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="value">left</td>
+                        <td class="declaration">
+                            <div class="declaration_text">clear:left</div>
+                        </td>
+                        <td>
+                            <p>The element is pushed below left floated elements</p>
+                        </td>
+                        <td>
+                            <p>The left side of the element will not touch any other element within the same containing
+                                element.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="value">right</td>
+                        <td class="declaration">
+                            <div class="declaration_text">clear:right</div>
+                        </td>
+                        <td>
+                            <p>The element is pushed below right floated elements</p>
+                        </td>
+                        <td>The right side of the element will not touch any other element within the same containing
+                            element</td>
+                    </tr>
+                    <tr>
+                        <td class="value">both</td>
+                        <td class="declaration">
+                            <div class="declaration_text">clear:both</div>
+                        </td>
+                        <td>
+                            <p>The element is pushed below both left and right floated elements</p>
+                        </td>
+                        <td>
+                            <p>Neither side of the element will touch any other element within the same containing
+                                element.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <h2>Attribution</h2>
+        <ul>
+            <li><a href="https://www.codecademy.com/learn/learn-css/modules/learn-css-display-positioning">Codecademy |
+                    learn
+                    CSS: Display and Positioning</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS: Cascading Style Sheets | MDN</a></li>
+            <li><a href="https://www.w3schools.com/css/">CSS | w3schools.com </a></li>
+            <li><a href="https://www.freepik.com/vectors/polygon-shape">Polygon shape vector created by freepik -
+                    www.freepik.com</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>
