@@ -55,6 +55,7 @@ a {
     font-weight: 300;
 }
 
+
 a:link {
     color: white;
 }
@@ -70,7 +71,8 @@ a:focus {
 
 a:hover {
     color: #265301;
-    font-weight:900;
+    font-weight: 900;
+    background: #CDFEAA;
 }
 
 a:active {
@@ -122,6 +124,10 @@ td {
 .declaration_text {
     background-color: #265301;
     text-align: center;
+}
+
+.footlink {
+    padding: 0px;
 }
 
 .property {
