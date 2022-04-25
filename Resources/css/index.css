@@ -135,6 +135,19 @@ td {
     padding: 0px;
 }
 
+.name {
+    position: absolute;
+    top: 20px;
+    left: 110px;
+    margin: auto;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: underline overline;
+    text-underline-offset: 30%;
+    text-decoration-thickness: 2px;
+    letter-spacing: 3px;
+}
+
 .property {
     height: 100px;
     color: white;
