@@ -12,14 +12,17 @@ body {
     height: 100%;
 }
 
-body:after{
-    content:"";
-    position:fixed; /* stretch a fixed position to the whole screen */
-    top:0;
-    height:100vh; /* fix for mobile browser address bar appearing disappearing */
-    left:0;
-    right:0;
-    z-index:-1; /* needed to keep in the background */
+body:after {
+    content: "";
+    position: fixed;
+    /* stretch a fixed position to the whole screen */
+    top: 0;
+    height: 100vh;
+    /* fix for mobile browser address bar appearing disappearing */
+    left: 0;
+    right: 0;
+    z-index: -1;
+    /* needed to keep in the background */
     background: url('../images/abstract.webp') center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -74,6 +77,27 @@ a {
     font-weight: 300;
 }
 
+
+a.name_link {
+    color: #265301;
+}
+
+a.name_link:visited {
+    color: #265301;
+}
+
+a.name_link:focus {
+    background: transparent;
+}
+
+a.name_link:hover {
+    font-weight: 500;
+    background: transparent;
+}
+
+a.name_link:active {
+    background: transparent;
+}
 
 a:link {
     color: white;
@@ -160,6 +184,10 @@ td {
     text-underline-offset: 4px;
     text-decoration-thickness: 2px;
     letter-spacing: 3px;
+}
+
+a.name_link {
+    padding: 0;
 }
 
 .property {
